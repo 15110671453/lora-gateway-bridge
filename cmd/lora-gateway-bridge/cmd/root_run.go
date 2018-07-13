@@ -11,9 +11,9 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 
-	"github.com/brocaar/lora-gateway-bridge/internal/backend/mqttpubsub"
 	"github.com/brocaar/lora-gateway-bridge/internal/config"
-	"github.com/brocaar/lora-gateway-bridge/internal/gateway"
+	"github.com/brocaar/lora-gateway-bridge/internal/legacy/backend/mqttpubsub"
+	"github.com/brocaar/lora-gateway-bridge/internal/legacy/gateway"
 	"github.com/brocaar/lorawan"
 )
 

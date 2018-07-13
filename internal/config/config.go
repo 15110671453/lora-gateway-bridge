@@ -1,8 +1,8 @@
 package config
 
 import (
-	"github.com/brocaar/lora-gateway-bridge/internal/backend/mqttpubsub"
-	"github.com/brocaar/lora-gateway-bridge/internal/gateway"
+	"github.com/brocaar/lora-gateway-bridge/internal/legacy/backend/mqttpubsub"
+	"github.com/brocaar/lora-gateway-bridge/internal/legacy/gateway"
 )
 
 // Config defines the configuration structure.
