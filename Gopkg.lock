@@ -10,15 +10,15 @@
   revision = "3a771d992973f24aa725d07868b467d1ddfceafb"
 
 [[projects]]
-  branch = "master"
-  digest = "1:b3cf7cc2b643fae90aec63d64ec8bc81f7f1d81f25e71e85524a833a1aae2bed"
+  branch = "fine_timestamp"
+  digest = "1:5ffdcf2b4d15979a821a6acd2b248b160244cc8ae9daa1bb9f288ba649b25733"
   name = "github.com/brocaar/loraserver"
   packages = [
     "api/common",
     "api/gw",
   ]
   pruneopts = ""
-  revision = "1d05732ccfcb8126c8fc164f19278c72270ad69c"
+  revision = "b75b414d1867aad8ccb5277f8096956279a0fbb0"
 
 [[projects]]
   branch = "master"
@@ -30,6 +30,14 @@
   ]
   pruneopts = ""
   revision = "7a082ab36debefa5545dd3a9e1652c3b99358146"
+
+[[projects]]
+  digest = "1:0a39ec8bf5629610a4bc7873a92039ee509246da3cef1a0ea60f1ed7e5f9cea5"
+  name = "github.com/davecgh/go-spew"
+  packages = ["spew"]
+  pruneopts = ""
+  revision = "346938d642f2ec3594ed81d874461961cd0faa76"
+  version = "v1.1.0"
 
 [[projects]]
   digest = "1:d2e2aebcb8e8027345e16f9d0be8cdee3bb470ba406c7a54cb7457ae3ad4ace5"
@@ -55,6 +63,8 @@
   name = "github.com/golang/protobuf"
   packages = [
     "proto",
+    "ptypes",
+    "ptypes/any",
     "ptypes/duration",
     "ptypes/timestamp",
   ]
@@ -155,6 +165,14 @@
   pruneopts = ""
   revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
   version = "v0.8.0"
+
+[[projects]]
+  digest = "1:256484dbbcd271f9ecebc6795b2df8cad4c458dd0f5fd82a8c2fa0c29f233411"
+  name = "github.com/pmezard/go-difflib"
+  packages = ["difflib"]
+  pruneopts = ""
+  revision = "792786c7400a136282c1664665ae0a8db921c6c2"
+  version = "v1.0.0"
 
 [[projects]]
   digest = "1:981835985f655d1d380cc6aa7d9fa9ad7abfaf40c75da200fd40d864cd05a7c3"
@@ -284,6 +302,18 @@
   version = "v1.0.2"
 
 [[projects]]
+  digest = "1:bc2a12c8863e1080226b7bc69192efd6c37aaa9b85cec508b0a8f54fabb9bd9f"
+  name = "github.com/stretchr/testify"
+  packages = [
+    "assert",
+    "require",
+    "suite",
+  ]
+  pruneopts = ""
+  revision = "f35b8ab0b5a2cef36673838d662e249dd9c94686"
+  version = "v1.2.2"
+
+[[projects]]
   branch = "master"
   digest = "1:e79c3d6b195477b429f017aaa02af135249bbdff31c9acbd8a93bb37a4ef7d3b"
   name = "golang.org/x/crypto"
@@ -341,10 +371,13 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/brocaar/loraserver/api/common",
     "github.com/brocaar/loraserver/api/gw",
     "github.com/brocaar/lorawan",
     "github.com/brocaar/lorawan/band",
     "github.com/eclipse/paho.mqtt.golang",
+    "github.com/golang/protobuf/ptypes",
+    "github.com/golang/protobuf/ptypes/duration",
     "github.com/pkg/errors",
     "github.com/prometheus/client_golang/prometheus",
     "github.com/prometheus/client_golang/prometheus/promhttp",
@@ -352,6 +385,9 @@
     "github.com/smartystreets/goconvey/convey",
     "github.com/spf13/cobra",
     "github.com/spf13/viper",
+    "github.com/stretchr/testify/assert",
+    "github.com/stretchr/testify/require",
+    "github.com/stretchr/testify/suite",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
