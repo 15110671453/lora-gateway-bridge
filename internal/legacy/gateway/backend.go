@@ -13,6 +13,7 @@ import (
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 
+	"github.com/brocaar/lora-gateway-bridge/internal/gateway/semtech"
 	"github.com/brocaar/loraserver/api/gw"
 	"github.com/brocaar/lorawan"
 )
@@ -67,7 +68,7 @@ func (c *gateways) set(mac lorawan.EUI64, gw gateway) error {
 	c.Lock()
 	_, ok := c.gateways[mac]
 	if !ok && c.onNew != nil {
-		gatewayEventCounter("")
+		gatewayEventCounter("register_gateway")
 		if err := c.onNew(mac); err != nil {
 			return err
 		}
@@ -94,16 +95,6 @@ func (c *gateways) cleanup() error {
 	return nil
 }
 
-// Configuration holds the packet-forwarder configuration.
-type Configuration struct {
-	MAC            lorawan.EUI64 `mapstructure:"-"`
-	MACString      string        `mapstructure:"mac"`
-	BaseFile       string        `mapstructure:"base_file"`
-	OutputFile     string        `mapstructure:"output_file"`
-	RestartCommand string        `mapstructure:"restart_command"`
-	version        string
-}
-
 // Backend implements a Semtech packet-forwarder gateway backend.
 type Backend struct {
 	conn           *net.UDPConn
@@ -113,13 +104,13 @@ type Backend struct {
 	udpSendChan    chan udpPacket
 	closed         bool
 	gateways       gateways
-	configurations []Configuration
+	configurations []semtech.PFConfiguration
 	wg             sync.WaitGroup
 	skipCRCCheck   bool
 }
 
 // NewBackend creates a new backend.
-func NewBackend(bind string, onNew func(lorawan.EUI64) error, onDelete func(lorawan.EUI64) error, skipCRCCheck bool, configurations []Configuration) (*Backend, error) {
+func NewBackend(bind string, onNew func(lorawan.EUI64) error, onDelete func(lorawan.EUI64) error, skipCRCCheck bool, configurations []semtech.PFConfiguration) (*Backend, error) {
 	addr, err := net.ResolveUDPAddr("udp", bind)
 	if err != nil {
 		return nil, err
@@ -237,7 +228,7 @@ func (b *Backend) ApplyConfiguration(config gw.GatewayConfigPacket) error {
 				"cmd": c.RestartCommand,
 			}).Info("gateway: packet-forwarder restart command invoked")
 
-			b.configurations[i].version = config.Version
+			b.configurations[i].Version = config.Version
 		}
 
 		if !found {
@@ -333,7 +324,7 @@ func (b *Backend) sendPackets() error {
 			"protocol_version": p.data[0],
 		}).Info("gateway: sending udp packet to gateway")
 
-		err = gatewayHandleTimer(pt.String(), func() error {
+		err = gatewayWriteUDPTimer(pt.String(), func() error {
 			_, err := b.conn.WriteToUDP(p.data, p.addr)
 			return err
 		})
@@ -447,7 +438,7 @@ func (b *Backend) handleStat(addr *net.UDPAddr, mac lorawan.EUI64, stat Stat) {
 	// set configuration version, if available
 	for _, c := range b.configurations {
 		if gwStats.MAC == c.MAC {
-			gwStats.ConfigVersion = c.version
+			gwStats.ConfigVersion = c.Version
 		}
 	}
 

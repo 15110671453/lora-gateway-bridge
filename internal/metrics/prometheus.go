@@ -19,13 +19,13 @@ func MustRegisterNewTimerWithError(name, help string, labels []string) func(prom
 	prometheus.MustRegister(timer)
 
 	return func(labels prometheus.Labels, f func() error) error {
-		labels["error"] = "f"
+		labels["error"] = "false"
 		start := time.Now()
 		err := f()
 		elasped := time.Since(start)
 
 		if err != nil {
-			labels["error"] = "t"
+			labels["error"] = "true"
 		}
 
 		timer.With(labels).Observe(float64(elasped) / float64(time.Second))

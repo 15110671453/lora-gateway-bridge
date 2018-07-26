@@ -30,7 +30,7 @@ type PFConfiguration struct {
 	BaseFile       string        `mapstructure:"base_file"`
 	OutputFile     string        `mapstructure:"output_file"`
 	RestartCommand string        `mapstructure:"restart_command"`
-	version        string
+	Version        string        `mapstructure:"-"`
 }
 
 // Backend implements a Semtech packet-forwarder gateway backend.
@@ -171,23 +171,25 @@ func (b *Backend) SendDownlinkFrame(frame gw.DownlinkFrame) error {
 // ApplyConfiguration applies the given configuration to the gateway
 // (packet-forwarder).
 func (b *Backend) ApplyConfiguration(config gw.GatewayConfiguration) error {
-	var gatewayID lorawan.EUI64
-	copy(gatewayID[:], config.GatewayId)
+	return gatewayConfigHandleTimer(func() error {
+		var gatewayID lorawan.EUI64
+		copy(gatewayID[:], config.GatewayId)
 
-	b.Lock()
-	var pfConfig *PFConfiguration
-	for i := range b.configurations {
-		if b.configurations[i].MAC == gatewayID {
-			pfConfig = &b.configurations[i]
+		b.Lock()
+		var pfConfig *PFConfiguration
+		for i := range b.configurations {
+			if b.configurations[i].MAC == gatewayID {
+				pfConfig = &b.configurations[i]
+			}
 		}
-	}
-	b.Unlock()
+		b.Unlock()
 
-	if pfConfig == nil {
-		return errGatewayDoesNotExist
-	}
+		if pfConfig == nil {
+			return errGatewayDoesNotExist
+		}
 
-	return b.applyConfiguration(*pfConfig, config)
+		return b.applyConfiguration(*pfConfig, config)
+	})
 }
 
 func (b *Backend) applyConfiguration(pfConfig PFConfiguration, config gw.GatewayConfiguration) error {
@@ -234,7 +236,7 @@ func (b *Backend) applyConfiguration(pfConfig PFConfiguration, config gw.Gateway
 
 	for i := range b.configurations {
 		if b.configurations[i].MAC == pfConfig.MAC {
-			b.configurations[i].version = config.Version
+			b.configurations[i].Version = config.Version
 		}
 	}
 
@@ -292,7 +294,7 @@ func (b *Backend) sendPackets() error {
 			"protocol_version": p.data[0],
 		}).Info("gateway: sending udp packet to gateway")
 
-		err = gatewayHandleTimer(pt.String(), func() error {
+		err = gatewayWriteUDPTimer(pt.String(), func() error {
 			_, err := b.conn.WriteToUDP(p.data, p.addr)
 			return err
 		})
@@ -431,7 +433,7 @@ func (b *Backend) handleStats(gatewayID lorawan.EUI64, stats gw.GatewayStats) {
 
 	for _, c := range b.configurations {
 		if gatewayID == c.MAC {
-			stats.ConfigVersion = c.version
+			stats.ConfigVersion = c.Version
 		}
 	}
 

@@ -11,14 +11,14 @@
 
 [[projects]]
   branch = "fine_timestamp"
-  digest = "1:5ffdcf2b4d15979a821a6acd2b248b160244cc8ae9daa1bb9f288ba649b25733"
+  digest = "1:f342c5c8adf5e935bc11756673527915c9c43fd347f3b8fdb4a26cd797e48115"
   name = "github.com/brocaar/loraserver"
   packages = [
     "api/common",
     "api/gw",
   ]
   pruneopts = ""
-  revision = "b75b414d1867aad8ccb5277f8096956279a0fbb0"
+  revision = "958eeef3980d0f15f9ce13e4d240297a934e60bc"
 
 [[projects]]
   branch = "master"
@@ -62,10 +62,12 @@
   digest = "1:b1d3041d568e065ab4d76f7477844458e9209c0bb241eaccdc0770bf0a13b120"
   name = "github.com/golang/protobuf"
   packages = [
+    "jsonpb",
     "proto",
     "ptypes",
     "ptypes/any",
     "ptypes/duration",
+    "ptypes/struct",
     "ptypes/timestamp",
   ]
   pruneopts = ""
@@ -376,6 +378,8 @@
     "github.com/brocaar/lorawan",
     "github.com/brocaar/lorawan/band",
     "github.com/eclipse/paho.mqtt.golang",
+    "github.com/golang/protobuf/jsonpb",
+    "github.com/golang/protobuf/proto",
     "github.com/golang/protobuf/ptypes",
     "github.com/golang/protobuf/ptypes/duration",
     "github.com/pkg/errors",

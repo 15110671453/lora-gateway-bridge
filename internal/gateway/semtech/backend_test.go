@@ -48,7 +48,7 @@ func (ts *BackendTestSuite) SetupTest() {
 			BaseFile:       filepath.Join("test/test.json"),
 			OutputFile:     filepath.Join(ts.tempDir, "out.json"),
 			RestartCommand: "touch " + filepath.Join(ts.tempDir, "restart"),
-			version:        "12345",
+			Version:        "12345",
 		},
 	})
 	assert.NoError(err)

@@ -1,8 +1,8 @@
 package config
 
 import (
-	"github.com/brocaar/lora-gateway-bridge/internal/legacy/backend/mqttpubsub"
-	"github.com/brocaar/lora-gateway-bridge/internal/legacy/gateway"
+	"github.com/brocaar/lora-gateway-bridge/internal/backend/mqtt"
+	"github.com/brocaar/lora-gateway-bridge/internal/gateway/semtech"
 )
 
 // Config defines the configuration structure.
@@ -15,11 +15,11 @@ type Config struct {
 		UDPBind      string `mapstructure:"udp_bind"`
 		SkipCRCCheck bool   `mapstructure:"skip_crc_check"`
 
-		Configuration []gateway.Configuration `mapstructure:"configuration"`
+		Configuration []semtech.PFConfiguration `mapstructure:"configuration"`
 	} `mapstructure:"packet_forwarder"`
 
 	Backend struct {
-		MQTT mqttpubsub.BackendConfig
+		MQTT mqtt.BackendConfig
 	}
 	Metrics struct {
 		Prometheus struct {
