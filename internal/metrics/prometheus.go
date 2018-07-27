@@ -16,7 +16,7 @@ func MustRegisterNewTimerWithError(name, help string, labels []string) func(prom
 		Help: help,
 	}, labels)
 
-	prometheus.MustRegister(timer)
+	timer = prometheus.MustRegisterOrGet(timer).(*prometheus.HistogramVec)
 
 	return func(labels prometheus.Labels, f func() error) error {
 		labels["error"] = "false"
@@ -40,7 +40,7 @@ func MustRegisterNewCounter(name string, help string, labels []string) func(prom
 		Help: help,
 	}, labels)
 
-	prometheus.MustRegister(counter)
+	counter = prometheus.MustRegisterOrGet(counter).(*prometheus.CounterVec)
 
 	return func(labels prometheus.Labels) {
 		counter.With(labels).Inc()
