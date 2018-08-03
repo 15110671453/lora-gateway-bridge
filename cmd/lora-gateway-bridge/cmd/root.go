@@ -97,7 +97,7 @@ func init() {
 	viper.SetDefault("backend.mqtt.auth.generic.clean_session", true)
 	viper.SetDefault("backend.mqtt.auth.generic.max_reconnect_interval", 10*time.Minute)
 
-	viper.SetDefault("metrics.prometheus.bind", "0.0.0.0:8005")
+	viper.SetDefault("metrics.prometheus.bind", "")
 
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(configCmd)
