@@ -10,15 +10,15 @@
   revision = "3a771d992973f24aa725d07868b467d1ddfceafb"
 
 [[projects]]
-  branch = "fine_timestamp"
-  digest = "1:f342c5c8adf5e935bc11756673527915c9c43fd347f3b8fdb4a26cd797e48115"
+  branch = "protobuf"
+  digest = "1:47e7848a52a741d018d6e444b2f02070df2f8a479475a8759a114f63224c01ee"
   name = "github.com/brocaar/loraserver"
   packages = [
     "api/common",
     "api/gw",
   ]
   pruneopts = ""
-  revision = "958eeef3980d0f15f9ce13e4d240297a934e60bc"
+  revision = "7883da74532537def8a3ca74c2accc3e3d9ba5d2"
 
 [[projects]]
   branch = "master"
