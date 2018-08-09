@@ -40,3 +40,7 @@
 [[constraint]]
   name = "github.com/stretchr/testify"
   version = "1.2.2"
+
+[[override]]
+  version = "v1.1.0"
+  name = "github.com/golang/protobuf"
