@@ -239,7 +239,27 @@ Protocol Buffers message.
 Example:
 
 ```json
-TODO
+{
+    "phyPayload": "IHN792Ld0vEHetyVv9+llJnnmz88Up6pFz8UiUdJMnUc",
+    "txInfo": {
+        "gatewayID": "cnb/AC4GLBg=",
+        "immediately": false,
+        "timeSinceGPSEpoch": null,
+        "timestamp": 3240216372,
+        "frequency": 868500000,
+        "power": 14,
+        "modulation": "LORA",
+        "loRaModulationInfo": {
+            "bandwidth": 125,
+            "spreadingFactor": 11,
+            "codeRate": "4/5",
+            "polarizationInversion": true
+        },
+        "board": 0,
+        "antenna": 0
+    },
+    "token": 38150
+}
 ```
 
 
@@ -389,5 +409,92 @@ Protocol Buffers message.
 Example:
 
 ```json
-TODO
+{
+    "gatewayID": "cnb/AC4GLBg=",
+    "version": "1.2.3",
+    "channels": [
+        {
+            "frequency": 868100000,
+            "modulation": "LORA",
+            "loRaModulationConfig": {
+                "bandwidth": 125,
+                "spreadingFactors": [7, 8, 9, 10, 11, 12]
+            }
+        },
+        {
+            "frequency": 868300000,
+            "modulation": "LORA",
+            "loRaModulationConfig": {
+                "bandwidth": 125,
+                "spreadingFactors": [7, 8, 9, 10, 11, 12]
+            }
+        },
+        {
+            "frequency": 868500000,
+            "modulation": "LORA",
+            "loRaModulationConfig": {
+                "bandwidth": 125,
+                "spreadingFactors": [7, 8, 9, 10, 11, 12]
+            }
+        },
+        {
+            "frequency": 867100000,
+            "modulation": "LORA",
+            "loRaModulationConfig": {
+                "bandwidth": 125,
+                "spreadingFactors": [7, 8, 9, 10, 11, 12]
+            }
+        },
+        {
+            "frequency": 867300000,
+            "modulation": "LORA",
+            "loRaModulationConfig": {
+                "bandwidth": 125,
+                "spreadingFactors": [7, 8, 9, 10, 11, 12]
+            }
+        },
+        {
+            "frequency": 867500000,
+            "modulation": "LORA",
+            "loRaModulationConfig": {
+                "bandwidth": 125,
+                "spreadingFactors": [7, 8, 9, 10, 11, 12]
+            }
+        },
+        {
+            "frequency": 867700000,
+            "modulation": "LORA",
+            "loRaModulationConfig": {
+                "bandwidth": 125,
+                "spreadingFactors": [7, 8, 9, 10, 11, 12]
+            }
+        },
+        {
+            "frequency": 867900000,
+            "modulation": "LORA",
+            "loRaModulationConfig": {
+                "bandwidth": 125,
+                "spreadingFactors": [7, 8, 9, 10, 11, 12]
+            }
+        },
+        {
+            "frequency": 868300000,
+            "modulation": "LORA",
+            "loRaModulationConfig": {
+                "bandwidth": 250,
+                "spreadingFactors": [
+                    7
+                ]
+            }
+        },
+        {
+            "frequency": 868800000,
+            "modulation": "FSK",
+            "fskModulationConfig": {
+                "bandwidth": 125,
+                "bitrate": 50000
+            }
+        }
+    ]
+}
 ```
