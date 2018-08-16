@@ -11,25 +11,25 @@
 
 [[projects]]
   branch = "protobuf"
-  digest = "1:47e7848a52a741d018d6e444b2f02070df2f8a479475a8759a114f63224c01ee"
+  digest = "1:ee77af8f9ece09683631b82a9c64e74594464be367d5dca10cc35c6e639d1cc0"
   name = "github.com/brocaar/loraserver"
   packages = [
     "api/common",
     "api/gw",
   ]
   pruneopts = ""
-  revision = "7883da74532537def8a3ca74c2accc3e3d9ba5d2"
+  revision = "4e3bc0efdb81d61794500ccf5f8d304b127730e2"
 
 [[projects]]
   branch = "master"
-  digest = "1:ebb3e486a0ff0a471a8f3bba9bc57113b37bc1af5e92ee00d9040af0630ea17a"
+  digest = "1:595adc97cee342285442e0b058e3fda6ec24b526a1b02ba6f48a5ea8d4ac9740"
   name = "github.com/brocaar/lorawan"
   packages = [
     ".",
     "band",
   ]
   pruneopts = ""
-  revision = "7a082ab36debefa5545dd3a9e1652c3b99358146"
+  revision = "f8d816eb916de4ef3253cc6f1f1036d25a1e324b"
 
 [[projects]]
   digest = "1:0a39ec8bf5629610a4bc7873a92039ee509246da3cef1a0ea60f1ed7e5f9cea5"
@@ -146,11 +146,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:eb9117392ee8e7aa44f78e0db603f70b1050ee0ebda4bd40040befb5b218c546"
+  digest = "1:f43ed2c836208c14f45158fd01577c985688a4d11cf9fd475a939819fef3b321"
   name = "github.com/mitchellh/mapstructure"
   packages = ["."]
   pruneopts = ""
-  revision = "bb74f1db0675b241733089d5a1faa5dd8b0ef57b"
+  revision = "f15292f7a699fcc1a38a80977f80a046874ba8ac"
 
 [[projects]]
   digest = "1:7c4a3dfaf6a6a70d05954f9eab61be866456a9056e8eba065b7e3a4907203a92"
@@ -197,7 +197,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:6a8420870eb2935977da1fff0f3afca9bdb3f1e66258c9e91a8a7ce0b5417c3b"
+  digest = "1:8a871dca636f82a927daffe10e9866fee6aa97a215905d56e97ecc73c07d5d44"
   name = "github.com/prometheus/common"
   packages = [
     "expfmt",
@@ -205,11 +205,11 @@
     "model",
   ]
   pruneopts = ""
-  revision = "7600349dcfe1abd18d72d3a1770870d9800a7801"
+  revision = "c7de2306084e37d54b8be01f3541a8464345e9a5"
 
 [[projects]]
   branch = "master"
-  digest = "1:00fca823dfcdd8107226f67215afd948b001525223ed955a05b33a4c885c9591"
+  digest = "1:7f298639cea3d8fe88aeefe6a7af1d642bca295cd125e172d320f57064c956c2"
   name = "github.com/prometheus/procfs"
   packages = [
     ".",
@@ -218,15 +218,15 @@
     "xfs",
   ]
   pruneopts = ""
-  revision = "ae68e2d4c00fed4943b5f6698d504a5fe083da8a"
+  revision = "05ee40e3a273f7245e8777337fc7b46e533a9a92"
 
 [[projects]]
-  digest = "1:f2cc92b78b2f3b76ab0f9daddddd28627bcfcc6cacf119029aa3850082d95079"
+  digest = "1:2c38661f5fb038bfb95197e0e5bc7a8f050d1f992c5ddaa01945e58fe2ef00de"
   name = "github.com/sirupsen/logrus"
   packages = ["."]
   pruneopts = ""
-  revision = "c155da19408a8799da419ed3eeb0cb5db0ad5dbc"
-  version = "v1.0.5"
+  revision = "3e01752db0189b9157070a0e1668a620f9a85da2"
+  version = "v1.0.6"
 
 [[projects]]
   digest = "1:572eefa0ca95482b75dc01391621e918e44de9aa4dcd97427171e18f724a8c4f"
@@ -281,27 +281,27 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:104517520aab91164020ab6524a5d6b7cafc641b2e42ac6236f6ac1deac4f66a"
+  digest = "1:49d1a9ccb9502d5ce81e7ae622211c496612970bbbfd1c9e4065e6ec13c3d030"
   name = "github.com/spf13/jwalterweatherman"
   packages = ["."]
   pruneopts = ""
-  revision = "7c0cea34c8ece3fbeb2b27ab9b59511d360fb394"
+  revision = "14d3d4c518341bea657dd8a226f5121c0ff8c9f2"
 
 [[projects]]
-  digest = "1:8e243c568f36b09031ec18dff5f7d2769dcf5ca4d624ea511c8e3197dc3d352d"
+  digest = "1:0a52bcb568386d98f4894575d53ce3e456f56471de6897bb8b9de13c33d9340e"
   name = "github.com/spf13/pflag"
   packages = ["."]
   pruneopts = ""
-  revision = "583c0c0531f06d5278b7d917446061adc344b5cd"
-  version = "v1.0.1"
+  revision = "9a97c102cda95a86cec2345a6f09f55a939babf5"
+  version = "v1.0.2"
 
 [[projects]]
-  digest = "1:79af66c513727a0ed32fb4137ad7d0613b01e8e2f5ce9479724e26e2c9068011"
+  digest = "1:8ff1e2b926c3f05238d7998d5b336d80f0ef9007b2417bcc7717344fe2b7e6b9"
   name = "github.com/spf13/viper"
   packages = ["."]
   pruneopts = ""
-  revision = "b5e8006cbee93ec955a89ab31e0e3ce3204f3736"
-  version = "v1.0.2"
+  revision = "907c19d40d9a6c9bb55f040ff4ae45271a4754b9"
+  version = "v1.1.0"
 
 [[projects]]
   digest = "1:bc2a12c8863e1080226b7bc69192efd6c37aaa9b85cec508b0a8f54fabb9bd9f"
@@ -317,15 +317,15 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:e79c3d6b195477b429f017aaa02af135249bbdff31c9acbd8a93bb37a4ef7d3b"
+  digest = "1:aa932c5c83700a862b7cf3a27e0d37d842824125128c403c7331c8d6f4c67608"
   name = "golang.org/x/crypto"
   packages = ["ssh/terminal"]
   pruneopts = ""
-  revision = "a49355c7e3f8fe157a85be2f77e6e269a0f89602"
+  revision = "de0752318171da717af4ce24d0a2e8626afaeb11"
 
 [[projects]]
   branch = "master"
-  digest = "1:49cff339ec8c74ee64add028979e4ddabe9e3cb76d072372c2b046cb154ba982"
+  digest = "1:c9045a7cc45dfb21bc1aaf624b1ef65e0e0095d8088b643d01102e27d8ff30a1"
   name = "golang.org/x/net"
   packages = [
     "internal/socks",
@@ -333,18 +333,18 @@
     "websocket",
   ]
   pruneopts = ""
-  revision = "cffdcf672aee934982473246bc7e9a8ba446aa9b"
+  revision = "c39426892332e1bb5ec0a434a079bf82f5d30c54"
 
 [[projects]]
   branch = "master"
-  digest = "1:880f5ae3ffdd8741fe179f0f70b46df57fcdd746f3a0e9d0e189bb6a241535e4"
+  digest = "1:414b72eb477161c35111082bc7300cc6c4ae983539b5e89d5fa049b1a041f421"
   name = "golang.org/x/sys"
   packages = [
     "unix",
     "windows",
   ]
   pruneopts = ""
-  revision = "1b2967e3c290b7c545b3db0deeda16e9be4f98a2"
+  revision = "1c9583448a9c3aa0f9a6a5241bf73c0bd8aafded"
 
 [[projects]]
   digest = "1:af9bfca4298ef7502c52b1459df274eed401a4f5498b900e9a92d28d3d87ac5a"
